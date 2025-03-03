@@ -11,7 +11,7 @@ import {
 } from './js/render-functions';
 
 const form = document.querySelector('.form');
-const formElInput = document.querySelector('.form button');
+
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -45,4 +45,4 @@ function handleSubmit(event) {
 }
 
 form.addEventListener('submit', handleSubmit);
-formElInput.addEventListener('input', handleSubmit);
+
