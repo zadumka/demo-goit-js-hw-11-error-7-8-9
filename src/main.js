@@ -10,8 +10,8 @@ import {
   showLoader,
 } from './js/render-functions';
 
-const formElBtn = document.querySelector('.search-form button');
-const formElInput = document.querySelector('.search-form button');
+const formElBtn = document.querySelector('.form button');
+const formElInput = document.querySelector('.form button');
 
 function handleSubmit(event) {
   event.preventDefault();
