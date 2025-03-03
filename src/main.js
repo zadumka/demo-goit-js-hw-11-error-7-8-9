@@ -22,7 +22,7 @@ function handleSubmit(event) {
   }
 
   showLoader();
-  // clearGallery();
+ 
 
   getImagesByQuery(data.message)
     .then(({ hits: results }) => {
@@ -36,14 +36,12 @@ function handleSubmit(event) {
 
       createGallery(results);
     })
-    // .catch(err => {
-    //   iziToast.error({
-    //     message: 'Error!!!',
-    //   });
-    // })
-    .finally(() => {
-      // hideLoader();
-    });
+     .catchr(err => {
+      iziToast.error({
+        message: 'Error!!!',
+      });
+    })
+    
 }
 
 formElBtn.addEventListener('click', handleSubmit);
