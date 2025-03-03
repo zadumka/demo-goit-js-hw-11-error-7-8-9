@@ -59,7 +59,7 @@ export function createGalleryMarkup(items = []) {
 
 export function createGallery(hits) {
   galleryEl.innerHTML = createGalleryMarkup(hits);
-  // lightbox.refresh();
+  
 }
 
 export function clearGallery() {
