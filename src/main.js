@@ -10,7 +10,7 @@ import {
   showLoader,
 } from './js/render-functions';
 
-const formElBtn = document.querySelector('.form button');
+const form = document.querySelector('.form');
 const formElInput = document.querySelector('.form button');
 
 function handleSubmit(event) {
@@ -22,7 +22,7 @@ function handleSubmit(event) {
   }
 
   showLoader();
- 
+  clearGallery();
 
   getImagesByQuery(data.message)
     .then(({ hits: results }) => {
@@ -36,7 +36,7 @@ function handleSubmit(event) {
 
       createGallery(results);
     })
-     .catchr(err => {
+     .catch(err => {
       iziToast.error({
         message: 'Error!!!',
       });
@@ -44,5 +44,5 @@ function handleSubmit(event) {
     
 }
 
-formElBtn.addEventListener('click', handleSubmit);
+form.addEventListener('submit', handleSubmit);
 formElInput.addEventListener('input', handleSubmit);
