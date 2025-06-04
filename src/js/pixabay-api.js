@@ -1,24 +1,27 @@
 import axios from 'axios';
 
+const API_KEY = '49351008-1bfee9cf32a9c846c40651839';
 const BASE_URL = 'https://pixabay.com/api/';
-const API_KEY = '31000801-179358ed9db1a9fc0904af43d';
 
-export function getImagesByQuery(query) {
-  const params = new URLSearchParams({
+export function fetchImages(query) {
+  const params = {
     key: API_KEY,
+    q: query,
     image_type: 'photo',
     orientation: 'horizontal',
+    per_page: 20,
     safesearch: true,
-    q: query,
-  });
+  };
 
-  return axios(`${BASE_URL}?${params}`)
-    .then(({ data }) => {
-      console.log(data);
-      return data;
+  return axios
+    .get(BASE_URL, { params })
+    .then(response => {
+      if (!response.data.hits.length) {
+        return Promise.reject(new Error('No images found'));
+      }
+      return response.data.hits;
     })
     .catch(error => {
-      console.log(error.message);
-      throw error;
+      return Promise.reject(error);
     });
 }
