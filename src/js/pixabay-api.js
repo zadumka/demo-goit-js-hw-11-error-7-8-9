@@ -3,7 +3,6 @@ import axios from 'axios';
 const API_KEY = '50377156-76a0d970257c0a39042cd42de';
 const BASE_URL = 'https://pixabay.com/api/';
 
-// delay (for testing only)
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
